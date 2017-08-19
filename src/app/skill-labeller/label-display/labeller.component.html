@@ -1,0 +1,15 @@
+<div [hidden]="isHidden" class="container card-container" [@swipeResponse]="transitionState">
+  <md-toolbar class="border">Is this a skill?</md-toolbar>
+  <md-card (swipeleft)="onSwipe('left', $event)" (swiperight)="onSwipe('right', $event)">
+    <md-card-content>
+      <h2 >{{possibleSkill}}</h2>
+    </md-card-content>
+    <md-card-actions>
+      <button md-fab (click)="onSwipe('left', $event)" class="swipe-left"><md-icon>close</md-icon></button>
+      <button md-fab (click)="onSwipe('right', $event)" class="swipe-right"><md-icon>check</md-icon></button>
+    </md-card-actions>
+    <md-card-footer>
+      <button md-button (click)="onRequestHelp()">Instructions</button>
+    </md-card-footer>
+  </md-card>
+</div>
