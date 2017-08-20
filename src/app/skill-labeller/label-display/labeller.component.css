@@ -1,7 +1,6 @@
 .card-container {
   padding: 3rem 1.5rem;
   text-align: center;
-  width: 30%;
 }
 
 .border:not([class*=mat-elevation-z]) {
