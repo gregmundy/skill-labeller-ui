@@ -5,8 +5,9 @@
       <h2 >{{possibleSkill}}</h2>
     </md-card-content>
     <md-card-actions>
-      <button md-fab (click)="onSwipe('left', $event)" class="swipe-left"><md-icon>close</md-icon></button>
-      <button md-fab (click)="onSwipe('right', $event)" class="swipe-right"><md-icon>check</md-icon></button>
+      <button class="spaced-button" md-fab (click)="onSwipe('left', $event)" class="swipe-left"><md-icon>close</md-icon></button>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button class="spaced-button" md-fab (click)="onSwipe('right', $event)" class="swipe-right"><md-icon>check</md-icon></button>
     </md-card-actions>
     <md-card-footer>
       <button md-button (click)="onRequestHelp()">Instructions</button>
