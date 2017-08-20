@@ -9,6 +9,8 @@ import {
   keyframes,
   group
 } from '@angular/animations';
+import { MdDialog, MdDialogRef } from '@angular/material';
+import { LabelHelpComponent } from '../label-help/label-help.component';
 
 @Component({
   selector: 'app-labeller',
@@ -35,14 +37,14 @@ import {
         animate('0.5s 0.1s ease-out')
       ]),
       transition('* => default', [
-        style({transform: 'scale(1.5)'}),
+        style({ transform: 'scale(1.5)' }),
         animate('0.4s 0.1s ease-in')
       ])
     ])
   ]
 })
 export class LabellerComponent implements OnInit {
-  constructor(private labelsService: LabelsService) { }
+  constructor(private labelsService: LabelsService, private dialog: MdDialog) { }
   transitionState = 'default';
   isHidden = false;
   possibleSkill: string;
@@ -52,7 +54,6 @@ export class LabellerComponent implements OnInit {
   }
 
   onSwipe(transitionState: string, $event) {
-    console.log($event.type);
     this.transitionState = transitionState;
     setTimeout(() => {
       this.isHidden = true;
@@ -62,12 +63,11 @@ export class LabellerComponent implements OnInit {
         this.possibleSkill = this.labelsService.getRandomLabel();
       }, 500);
     }, 500);
-
-    // this.transitionState = 'default';
-    // this.isHidden = false;
   }
 
   onRequestHelp() {
-    console.log('Request help');
+    this.dialog.open(LabelHelpComponent);
   }
+
+
 }

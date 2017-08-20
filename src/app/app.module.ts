@@ -14,11 +14,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import 'hammerjs';
 import { LabelsService } from './skill-labeller/labels.services';
+import { LabelHelpComponent } from './skill-labeller/label-help/label-help.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LabellerComponent
+    LabellerComponent,
+    LabelHelpComponent
+  ],
+  entryComponents: [
+    LabelHelpComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,7 @@ import { LabelsService } from './skill-labeller/labels.services';
     MdDialogModule,
     BrowserAnimationsModule
   ],
-  providers: [LabelsService],
+  providers: [LabelsService, MdDialog],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
