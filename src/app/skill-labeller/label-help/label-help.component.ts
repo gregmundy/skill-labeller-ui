@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MdDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-label-help',
@@ -8,7 +8,7 @@ import { MdDialogRef } from '@angular/material';
 })
 export class LabelHelpComponent implements OnInit {
 
-  constructor(public dialogRef: MdDialogRef<LabelHelpComponent>) { }
+  constructor(public dialogRef: MatDialogRef<LabelHelpComponent>) { }
 
   ngOnInit() {
   }

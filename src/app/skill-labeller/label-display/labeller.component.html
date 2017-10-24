@@ -1,16 +1,16 @@
 <div [hidden]="isHidden" class="container card-container" [@swipeResponse]="transitionState">
-  <md-toolbar class="border">Is this a skill?</md-toolbar>
-  <md-card (swipeleft)="onSwipe('left', $event)" (swiperight)="onSwipe('right', $event)">
-    <md-card-content>
-      <h2 >{{possibleSkill}}</h2>
-    </md-card-content>
-    <md-card-actions>
-      <button class="spaced-button" md-fab (click)="onSwipe('left', $event)" class="swipe-left"><md-icon>close</md-icon></button>
+	<mat-toolbar class="border">In this context, is '{{possibleSkill}}' a skill?</mat-toolbar>
+  <mat-card (swipeleft)="onSwipe('left', $event)" (swiperight)="onSwipe('right', $event)">
+    <mat-card-content>
+		...{{beforeSkill}}<span class="token">{{possibleSkill}}</span>{{afterSkill}}...
+    </mat-card-content>
+    <mat-card-actions>
+      <button class="spaced-button" mat-fab (click)="onSwipe('left', $event)" class="swipe-left"><mat-icon>close</mat-icon></button>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <button class="spaced-button" md-fab (click)="onSwipe('right', $event)" class="swipe-right"><md-icon>check</md-icon></button>
-    </md-card-actions>
-    <md-card-footer>
-      <button md-button (click)="onRequestHelp()">Instructions</button>
-    </md-card-footer>
-  </md-card>
+      <button class="spaced-button" mat-fab (click)="onSwipe('right', $event)" class="swipe-right"><mat-icon>check</mat-icon></button>
+    </mat-card-actions>
+    <mat-card-footer>
+      <button mat-button (click)="onRequestHelp()">Instructions</button>
+    </mat-card-footer>
+  </mat-card>
 </div>

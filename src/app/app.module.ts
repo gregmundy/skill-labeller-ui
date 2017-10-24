@@ -4,11 +4,11 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LabellerComponent } from './skill-labeller/label-display/labeller.component';
 
-import { MdToolbarModule } from '@angular/material';
-import { MdButtonModule } from '@angular/material';
-import { MdIconModule } from '@angular/material';
-import { MdCardModule } from '@angular/material';
-import { MdDialogModule, MdDialogRef, MdDialog } from '@angular/material';
+import { MatToolbarModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material';
+import { MatIconModule } from '@angular/material';
+import { MatCardModule } from '@angular/material';
+import { MatDialogModule, MatDialogRef, MatDialog } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -27,14 +27,14 @@ import { LabelHelpComponent } from './skill-labeller/label-help/label-help.compo
   ],
   imports: [
     BrowserModule,
-    MdToolbarModule,
-    MdButtonModule,
-    MdIconModule,
-    MdCardModule,
-    MdDialogModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatCardModule,
+    MatDialogModule,
     BrowserAnimationsModule
   ],
-  providers: [LabelsService, MdDialog],
+  providers: [LabelsService, MatDialog],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,7 +9,7 @@ import {
   keyframes,
   group
 } from '@angular/animations';
-import { MdDialog, MdDialogRef } from '@angular/material';
+import { MatDialog, MatDialogRef } from '@angular/material';
 import { LabelHelpComponent } from '../label-help/label-help.component';
 
 @Component({
@@ -44,13 +44,21 @@ import { LabelHelpComponent } from '../label-help/label-help.component';
   ]
 })
 export class LabellerComponent implements OnInit {
-  constructor(private labelsService: LabelsService, private dialog: MdDialog) { }
+  constructor(private labelsService: LabelsService, private dialog: MatDialog) { }
   transitionState = 'default';
   isHidden = false;
+  beforeSkill: string;
   possibleSkill: string;
+  afterSkill: string;
 
   ngOnInit() {
+	var re = /\[(.*)\]/g;
     this.possibleSkill = this.labelsService.getRandomLabel();
+	var splitOnBefore = this.possibleSkill.split('[');
+	var splitOnAfter = splitOnBefore[1].split(']');
+	this.beforeSkill = splitOnBefore[0];
+	this.possibleSkill = splitOnAfter[0];
+	this.afterSkill = splitOnAfter[1];
   }
 
   onSwipe(transitionState: string, $event) {
@@ -60,7 +68,12 @@ export class LabellerComponent implements OnInit {
       setTimeout(() => {
         this.isHidden = false;
         this.transitionState = 'default';
-        this.possibleSkill = this.labelsService.getRandomLabel();
+		this.possibleSkill = this.labelsService.getRandomLabel();
+		var splitOnBefore = this.possibleSkill.split('[');
+		var splitOnAfter = splitOnBefore[1].split(']');
+		this.beforeSkill = splitOnBefore[0];
+		this.possibleSkill = splitOnAfter[0];
+		this.afterSkill = splitOnAfter[1];
       }, 500);
     }, 500);
   }

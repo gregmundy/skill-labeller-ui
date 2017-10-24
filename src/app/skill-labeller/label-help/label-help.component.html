@@ -1,15 +1,24 @@
-<h1 md-dialog-title class="primary-color">Usage Instructions</h1>
-<md-dialog-content class="accent-color">
+<h1 mat-dialog-title class="primary-color">Usage Instructions</h1>
+<mat-dialog-content class="accent-color">
   <p>
-    You will be presented with text snippets from various job postings gathered from a variety of sources.
+  You will be presented with text snippets from various job postings gathered from a variety of sources. Each snippet has a bolded <strong>word or phrase</strong> preceded and followed by the context in which it appears in the job posting.
   </p>
   <p>
-    Swipe right or click the green button <span><md-icon>check</md-icon></span> if the text snippet is a job skill.
+  Swipe right or click the green button <span><mat-icon>check</mat-icon></span> if the bolded word or phrase refers to a job skill <strong>in this context</strong>
   </p>
   <p>
-    Swipe left or click the red button <span><sub><md-icon>cancel</md-icon></sub></span> if the text snippet is <strong>NOT</strong>
-    a job skill.
+    Swipe left or click the red button <span><sub><mat-icon>cancel</mat-icon></sub></span> if the bolded word or phrase does not <strong>NOT</strong> refer to a job skill in this context.
   </p>
+  <h3>What do you mean by a job skill?</h3>
+  <p>A job skill can mean either a hard skill (Mathematics), soft skill (Social Perceptiveness), or technology (AutoCAD) that is expected to perform well on that job. If you are familiar with the ONET taxonomy, this correlates roughly to ONET's definitions of 'Knowledge', 'Skill', 'Ability', and 'Technology Skill'. At this time, we are not seeking to make any distinction between these categories, only that a given word or phrase represents any of them.
+  </p>
+  <h3>Why am I seeing context?</h3>
+  <p>Some words represent job skills in some contexts but not others. For instance, a job posting for a social media manager may contain the text</p>
+  <p><i>'Responsibilities involve writing <strong>Facebook</strong> posts on the company account'</i>,</p>
+  <p>and in such a context Facebook does represent a skill. However, many job postings will contain text such as</p>
+  <p><i>'For more information, see our <strong>Facebook</strong> page at https://www.facebook.com/...'</i></p>
+  <p>In such a case, 'Facebook' does not represent a job skill. We make this distinction to improve skill extraction accuracy.</p>
+  <h3>How long should I use this?</h3>
   <p>
     Continue classifying as many new text snippets as you like. This helps to improve our machine learning algorithm's predictive
     capabilities.
@@ -17,9 +26,9 @@
   <p>
     Thanks for your support and have fun!
   </p>
-</md-dialog-content>
-<md-dialog-actions>
-  <button md-raised-button color="primary" md-dialog-close>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button color="primary" mat-dialog-close>
     Got it, now let's go!
   </button>
-</md-dialog-actions>
+</mat-dialog-actions>
