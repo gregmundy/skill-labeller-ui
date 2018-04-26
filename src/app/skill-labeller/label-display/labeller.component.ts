@@ -48,19 +48,35 @@ export class LabellerComponent implements OnInit {
   transitionState = 'default';
   isHidden = false;
   possibleSkill: string;
+  skill_label: boolean;
+  get_url: string;
 
   ngOnInit() {
     this.possibleSkill = this.labelsService.getRandomLabel();
   }
 
   onSwipe(transitionState: string, $event) {
+    this.get_url = 'https://jsonplaceholder.typicode.com/posts/1';
     this.transitionState = transitionState;
+    this.skill_label = false;
+    if(this.transitionState == 'right'){
+        this.skill_label = true;
+    }
+
+    console.log("\t Whoa we swiped/clicked!")
+    console.log("\n this is the label " + this.skill_label)
+
     setTimeout(() => {
       this.isHidden = true;
       setTimeout(() => {
         this.isHidden = false;
         this.transitionState = 'default';
         this.possibleSkill = this.labelsService.getRandomLabel();
+        console.log("\t url is:" + this.get_url)
+        // Simulate GET from `dispatcher` service
+        fetch(this.get_url)
+          .then(response => response.json())
+          .then(json => console.log(json));
       }, 500);
     }, 500);
   }
