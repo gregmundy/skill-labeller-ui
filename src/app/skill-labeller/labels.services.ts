@@ -1,4 +1,7 @@
 export class LabelsService {
+  putCandidateLabelEndpoint = '';
+  getCandidateEndpoint = '';
+  dispatcher = 'https://jsonplaceholder.typicode.com/posts/1';
   testLabels = [
     'Data Analysis',
     'Copywriting',
@@ -101,5 +104,26 @@ export class LabelsService {
   getRandomLabel() {
     const index = Math.floor((Math.random() * this.testLabels.length));
     return this.testLabels[index];
+  }
+
+  getCandidateSkill() {
+    return fetch(this.getCandidateEndpoint)
+             .then(response => response.json())
+  }
+
+  putCandidateLabel(label: boolean, candidateSkill: string) {
+    // should really do some checking, but in a way it 
+    // doesn't matter what you do lient side
+    candidateSkill['label'] = label;
+    data = {
+      method: 'post',
+      mode: 'cors',
+      credentials: 'same-origin',
+      headers: new Headers({'Content-Type': 'application/json'}),
+      body: JSON.stringify(candidateSkill)
+    }
+
+    return fetch(this.putCandidateLabelEndpoint, data)
+             .then(response => response.json())
   }
 }

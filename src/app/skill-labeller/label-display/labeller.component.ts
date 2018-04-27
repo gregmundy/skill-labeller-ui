@@ -73,10 +73,13 @@ export class LabellerComponent implements OnInit {
         this.transitionState = 'default';
         this.possibleSkill = this.labelsService.getRandomLabel();
         console.log("\t url is:" + this.get_url)
+
+        console.log( this.labelsService.getCandidateSkill());
+
         // Simulate GET from `dispatcher` service
-        fetch(this.get_url)
-          .then(response => response.json())
-          .then(json => console.log(json));
+        //fetch(this.get_url)
+        //  .then(response => response.json())
+        //  .then(json => console.log(json));
       }, 500);
     }, 500);
   }
