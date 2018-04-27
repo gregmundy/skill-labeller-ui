@@ -71,15 +71,14 @@ export class LabellerComponent implements OnInit {
       setTimeout(() => {
         this.isHidden = false;
         this.transitionState = 'default';
+        // todo: rename to candidateSkill 
         this.possibleSkill = this.labelsService.getRandomLabel();
         console.log("\t url is:" + this.get_url)
 
         console.log( this.labelsService.getCandidateSkill());
 
-        // Simulate GET from `dispatcher` service
-        //fetch(this.get_url)
-        //  .then(response => response.json())
-        //  .then(json => console.log(json));
+        //this.labelsService.putCandidateLabel(this.skill_label, candidateSkill)
+
       }, 500);
     }, 500);
   }

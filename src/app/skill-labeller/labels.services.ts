@@ -111,9 +111,9 @@ export class LabelsService {
              .then(response => response.json())
   }
 
-  putCandidateLabel(label: boolean, candidateSkill: string) {
+  putCandidateLabel(label: boolean, candidateSkill: object) {
     // should really do some checking, but in a way it 
-    // doesn't matter what you do lient side
+    // doesn't matter what you do client side
     candidateSkill['label'] = label;
     data = {
       method: 'post',
@@ -124,6 +124,10 @@ export class LabelsService {
     }
 
     return fetch(this.putCandidateLabelEndpoint, data)
-             .then(response => response.json())
+        .then(function(response) {
+        if (!response.ok){
+            window.alert("Failed to put candidate label to dispatcher!")
+            }
+        }
   }
 }
