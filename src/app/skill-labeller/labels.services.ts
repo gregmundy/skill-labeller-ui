@@ -2,6 +2,11 @@ export class LabelsService {
   putCandidateLabelEndpoint = '';
   getCandidateEndpoint = '';
   dispatcher = 'https://jsonplaceholder.typicode.com/posts/1';
+  data = {
+      method: 'post',
+      headers: new Headers({'Content-Type': 'application/json'}),
+      body: {"uuid":"", "label":false}
+    }
   testLabels = [
     'Data Analysis',
     'Copywriting',
@@ -111,23 +116,16 @@ export class LabelsService {
              .then(response => response.json())
   }
 
-  putCandidateLabel(label: boolean, candidateSkill: object) {
-    // should really do some checking, but in a way it 
-    // doesn't matter what you do client side
-    candidateSkill['label'] = label;
-    data = {
-      method: 'post',
-      mode: 'cors',
-      credentials: 'same-origin',
-      headers: new Headers({'Content-Type': 'application/json'}),
-      body: JSON.stringify(candidateSkill)
-    }
+  putCandidateLabel(label: boolean, uuid: string) {
+    this.data["body"]["label"] = label;
+    this.data["body"]["uuid"] = uuid;
 
-    return fetch(this.putCandidateLabelEndpoint, data)
+    return fetch(this.putCandidateLabelEndpoint,
+                 JSON.stringify(this.data["body"]))
         .then(function(response) {
         if (!response.ok){
             window.alert("Failed to put candidate label to dispatcher!")
             }
-        }
+        });
   }
 }
