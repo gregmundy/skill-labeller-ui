@@ -4,5 +4,7 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  dispatcher_host: "${process.env.DISPATCHER_HOST}",
+  dispatcher_port: "${process.env.DISPATCHER_PORT}",
 };

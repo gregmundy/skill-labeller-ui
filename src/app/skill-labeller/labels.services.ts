@@ -1,6 +1,11 @@
+import { environment} from '../../environments/environment'
+
 export class LabelsService {
-  putCandidateLabelEndpoint = '';
-  getCandidateEndpoint = '';
+  dispatcherEndpoint = new URL("http://" + environment.dispatcher_host + ":" +  environment.dispatcher_port);
+
+  getCandidateEndpoint = URL(environment.dispatcher_get, dispatcherEndpoint);
+  putCandidateEndpoint = URL(environment.dispatcher_put, dispatcherEndpoint);
+
   dispatcher = 'https://jsonplaceholder.typicode.com/posts/1';
   data = {
       method: 'post',
