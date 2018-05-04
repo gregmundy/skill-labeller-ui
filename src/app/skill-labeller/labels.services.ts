@@ -1,10 +1,11 @@
 import { environment} from '../../environments/environment'
 
 export class LabelsService {
-  dispatcherEndpoint = new URL("http://" + environment.dispatcher_host + ":" +  environment.dispatcher_port);
+  // would use URL but isn't working as I expect
+  dispatcherEndpoint = "http://" + environment.dispatcher_host + ":" + environment.dispatcher_port;
 
-  getCandidateEndpoint = URL(environment.dispatcher_get, dispatcherEndpoint);
-  putCandidateEndpoint = URL(environment.dispatcher_put, dispatcherEndpoint);
+  getCandidateEndpoint = this.dispatcherEndpoint + environment.dispatcher_get;
+  putCandidateEndpoint = this.dispatcherEndpoint + environment.dispatcher_put;
 
   dispatcher = 'https://jsonplaceholder.typicode.com/posts/1';
   data = {
@@ -125,7 +126,7 @@ export class LabelsService {
     this.data["body"]["label"] = label;
     this.data["body"]["uuid"] = uuid;
 
-    return fetch(this.putCandidateLabelEndpoint,
+    return fetch(this.putCandidateEndpoint,
                  JSON.stringify(this.data["body"]))
         .then(function(response) {
         if (!response.ok){
